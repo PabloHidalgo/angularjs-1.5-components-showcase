@@ -6,27 +6,10 @@
 	  .component('courseCard', {
   		templateUrl: 'app/courses/components/courseCard/courseCard.html',
 	  	bindings: {
+				//inputs
 				course: '<'
 
-				//inputs
-	  		// title: '<',
-	  		// subtitle: '<',
-				// content: '<',
-	  		// author: '<',
-	  		// image: '<',
-				// likes: '<',
-				// liked: '<',
-				// enrolls: '<',
-				// enrolled: '<',
-				// id: '<'
-
-				//,
-
 				//outputs
-				//onDiscard: '&',
-				//onEnroll: '&',
-				//onLike: '&'//,
-				//onShare: '&'
 	  	},
 			require: {
 		    galleryCtrl: '^courseGallery'
@@ -40,17 +23,16 @@
 			var vm = this;
 
 			vm.$onInit = function() {
+				console.log('CourseCardController:vm$onInit');
 				console.log(vm.course);
 			}
 
 			vm.onEnroll = function(course) {
-			//vm.onEnroll = function(id, title, enrolled) {
-				console.log('onEnroll called from \'CourseCardController\'');
+				console.log('CourseCardController::onEnroll');
 			};
 
 			vm.onLike = function(course) {
-				//function(id, title, liked) {
-				console.log('onLike called from \'CourseCardController\'');
+				console.log('CourseCardController::onLike');
 			};
 		}
 })();

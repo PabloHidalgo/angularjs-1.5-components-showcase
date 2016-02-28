@@ -20,9 +20,13 @@
 										parent: 'shell',
 										views: {
                         'content@shell': {
-			                		templateUrl: 'app/courses/index/index.html'//,
-			                		//controller: 'CoursesIndexController',
-			                		//controllerAs: 'vm'
+													//ONLY if you hack angular-ui-router to $resolve property to scope.
+													//checkout this github topic & git:
+													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
+													//https://github.com/angular-ui/ui-router/issues/2547
+													templateUrl: 'app/courses/index/index.html',
+			                		controller: 'CoursesIndexController',
+			                		controllerAs: 'vm'
 												}
 										},
                     resolve: {
@@ -43,10 +47,13 @@
                     url: '/top-favourites',
 										views: {
                         'content@shell': {
-													//component: 'courseGallery'
-			                		templateUrl: 'app/courses/index/index.html'//,
-			                		// controller: 'CoursesTopFavouritesController',
-			                		// controllerAs: 'vm'
+													//ONLY if you hack angular-ui-router to $resolve property to scope.
+													//checkout this github topic & git:
+													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
+													//https://github.com/angular-ui/ui-router/issues/2547
+													templateUrl: 'app/courses/index/index.html',
+			                		controller: 'CoursesIndexController',
+			                		controllerAs: 'vm'
 												}
 										},
                     resolve: {
@@ -66,10 +73,13 @@
 										url: '/top-enrollments',
 										views: {
 												'content@shell': {
-													//component: 'courseGallery'
-													templateUrl: 'app/courses/index/index.html'//,
-													// controller: 'CoursesTopFavouritesController',
-													// controllerAs: 'vm'
+													//ONLY if you hack angular-ui-router to $resolve property to scope.
+													//checkout this github topic & git:
+													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
+													//https://github.com/angular-ui/ui-router/issues/2547
+													templateUrl: 'app/courses/index/index.html',
+			                		controller: 'CoursesIndexController',
+			                		controllerAs: 'vm'
 												}
 										},
 										resolve: {
@@ -89,10 +99,13 @@
 										url: '/my-favourites',
 										views: {
 												'content@shell': {
-													//component: 'courseGallery'
-													templateUrl: 'app/courses/index/index.html'//,
-													// controller: 'CoursesTopFavouritesController',
-													// controllerAs: 'vm'
+													//ONLY if you hack angular-ui-router to $resolve property to scope.
+													//checkout this github topic & git:
+													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
+													//https://github.com/angular-ui/ui-router/issues/2547
+													templateUrl: 'app/courses/index/index.html',
+			                		controller: 'CoursesIndexController',
+			                		controllerAs: 'vm'
 												}
 										},
 										resolve: {
@@ -112,10 +125,13 @@
 										url: '/my-enrollments',
 										views: {
 												'content@shell': {
-													//component: 'courseGallery'
-													templateUrl: 'app/courses/index/index.html'//,
-													// controller: 'CoursesTopFavouritesController',
-													// controllerAs: 'vm'
+													//ONLY if you hack angular-ui-router to $resolve property to scope.
+													//checkout this github topic & git:
+													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
+													//https://github.com/angular-ui/ui-router/issues/2547
+													templateUrl: 'app/courses/index/index.html',
+			                		controller: 'CoursesIndexController',
+			                		controllerAs: 'vm'
 												}
 										},
 										resolve: {

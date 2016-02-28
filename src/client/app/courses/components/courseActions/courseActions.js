@@ -22,6 +22,7 @@
 			var vm = this;
 
 			vm.toggleEnrollCourse = function(course) {
+				console.log('CourseActionsController::toggleEnrollCourse');
         console.log(course);
 				datacontext.courses.enroll(course.id).then(function() {
 					return vm.onEnroll();
@@ -30,6 +31,7 @@
 			};
 
 			vm.toggleLikeCourse = function(course) {
+				console.log('CourseActionsController::toggleLikeCourse');
         console.log(course);
 				datacontext.courses.like(course.id).then(function() {
 					return vm.onLike();
