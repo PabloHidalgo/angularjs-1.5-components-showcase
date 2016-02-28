@@ -43,6 +43,15 @@
                 state: 'courses.top-favourites',
                 config: {
                     url: '/top-favourites',
+										views: {
+                        'content@shell': {
+													//ONLY if you hack angular-ui-router to $resolve property to scope.
+													//checkout this github topic & git:
+													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
+													//https://github.com/angular-ui/ui-router/issues/2547
+													templateUrl: 'app/courses/index/index.html'
+												}
+										},
                     resolve: {
 											title: function() {
 												return 'COURSES TOP FAVOURITES'
@@ -58,6 +67,15 @@
 								state: 'courses.top-enrollments',
 								config: {
 										url: '/top-enrollments',
+										views: {
+												'content@shell': {
+													//ONLY if you hack angular-ui-router to $resolve property to scope.
+													//checkout this github topic & git:
+													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
+													//https://github.com/angular-ui/ui-router/issues/2547
+													templateUrl: 'app/courses/index/index.html'
+												}
+										},
 										resolve: {
 											title: function() {
 												return 'COURSES TOP ENROLLMENTS'
@@ -73,6 +91,15 @@
 								state: 'courses.my-favourites',
 								config: {
 										url: '/my-favourites',
+										views: {
+												'content@shell': {
+													//ONLY if you hack angular-ui-router to $resolve property to scope.
+													//checkout this github topic & git:
+													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
+													//https://github.com/angular-ui/ui-router/issues/2547
+													templateUrl: 'app/courses/index/index.html'
+												}
+										},
 										resolve: {
 											title: function() {
 												return 'MY FAVOURITES COURSES'
@@ -88,6 +115,15 @@
 								state: 'courses.my-enrollments',
 								config: {
 										url: '/my-enrollments',
+										views: {
+												'content@shell': {
+													//ONLY if you hack angular-ui-router to $resolve property to scope.
+													//checkout this github topic & git:
+													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
+													//https://github.com/angular-ui/ui-router/issues/2547
+													templateUrl: 'app/courses/index/index.html'
+												}
+										},
 										resolve: {
 											title: function() {
 												return 'COURSES I\'M ENROLLED IN'

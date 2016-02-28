@@ -5,7 +5,7 @@
 	  .module('app.core', [
 	  	'blocks.logger',
 	  	'blocks.router',
-	  	'ui.router.components',
+	  	'ui.router',
 			'ngMaterial'
 	  ]);
 })();
