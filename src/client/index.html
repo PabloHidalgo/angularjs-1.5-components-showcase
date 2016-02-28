@@ -20,8 +20,17 @@
     </head>
 
     <body>
+      <div layout="row" layout-align="center center" layout-padding style="background-color: red;">
+        <a style="background-color: white;" layout-margin ui-sref="courses">All Courses</a>
+        <a style="background-color: white;" layout-margin ui-sref="courses.top-favourites">Top Favourites</a>
+        <a style="background-color: white;" layout-margin ui-sref="courses.top-enrollments">Top Enrollments</a>
+        <a style="background-color: white;" layout-margin ui-sref="courses.my-favourites">My Favourites</a>
+        <a style="background-color: white;" layout-margin ui-sref="courses.my-enrollments">My Enrollments</a>
+        <a style="background-color: white;" layout-margin ui-sref="about">About</a>
+      </div>
+
         <!-- routing begins here-->
-        <div ui-view="shell"></div>
+        <div ui-view></div>
 
         <!-- build:js js/lib.js -->
         <!-- bower:js -->
@@ -63,8 +72,8 @@
         <script src="/src/client/app/courses/components/courseActions/courseActions.js"></script>
         <script src="/src/client/app/courses/components/courseCard/courseCard.js"></script>
         <script src="/src/client/app/courses/components/courseGallery/courseGallery.js"></script>
+        <script src="/src/client/app/courses/courses.component.js"></script>
         <script src="/src/client/app/courses/courses.state.js"></script>
-        <script src="/src/client/app/courses/index/index.controller.js"></script>
         <script src="/src/client/app/data/datacontext.js"></script>
         <script src="/src/client/app/data/repositories/repository.abstract.js"></script>
         <script src="/src/client/app/data/repositories/repository.courses.js"></script>

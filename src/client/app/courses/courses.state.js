@@ -12,23 +12,14 @@
     }
 
     function getStates() {
+				//TBD: states needs to be un-nested (no child-father hierarchy).
+				//hijack to routable states not working correctly
         return [
             {
                 state: 'courses',
                 config: {
                     url: '/courses',
-										parent: 'shell',
-										views: {
-                        'content@shell': {
-													//ONLY if you hack angular-ui-router to $resolve property to scope.
-													//checkout this github topic & git:
-													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
-													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html',
-			                		controller: 'CoursesIndexController',
-			                		controllerAs: 'vm'
-												}
-										},
+										component: 'courses',
                     resolve: {
 												title: function() {
 													return 'COURSES LIST'
@@ -45,17 +36,7 @@
                 state: 'courses.top-favourites',
                 config: {
                     url: '/top-favourites',
-										views: {
-                        'content@shell': {
-													//ONLY if you hack angular-ui-router to $resolve property to scope.
-													//checkout this github topic & git:
-													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
-													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html',
-			                		controller: 'CoursesIndexController',
-			                		controllerAs: 'vm'
-												}
-										},
+										component: 'courses',
                     resolve: {
 											title: function() {
 												return 'COURSES TOP FAVOURITES'
@@ -71,17 +52,7 @@
 								state: 'courses.top-enrollments',
 								config: {
 										url: '/top-enrollments',
-										views: {
-												'content@shell': {
-													//ONLY if you hack angular-ui-router to $resolve property to scope.
-													//checkout this github topic & git:
-													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
-													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html',
-			                		controller: 'CoursesIndexController',
-			                		controllerAs: 'vm'
-												}
-										},
+										component: 'courses',
 										resolve: {
 											title: function() {
 												return 'COURSES TOP ENROLLMENTS'
@@ -97,17 +68,7 @@
 								state: 'courses.my-favourites',
 								config: {
 										url: '/my-favourites',
-										views: {
-												'content@shell': {
-													//ONLY if you hack angular-ui-router to $resolve property to scope.
-													//checkout this github topic & git:
-													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
-													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html',
-			                		controller: 'CoursesIndexController',
-			                		controllerAs: 'vm'
-												}
-										},
+										component: 'courses',
 										resolve: {
 											title: function() {
 												return 'MY FAVOURITES COURSES'
@@ -123,17 +84,7 @@
 								state: 'courses.my-enrollments',
 								config: {
 										url: '/my-enrollments',
-										views: {
-												'content@shell': {
-													//ONLY if you hack angular-ui-router to $resolve property to scope.
-													//checkout this github topic & git:
-													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
-													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html',
-			                		controller: 'CoursesIndexController',
-			                		controllerAs: 'vm'
-												}
-										},
+										component: 'courses',
 										resolve: {
 											title: function() {
 												return 'COURSES I\'M ENROLLED IN'
