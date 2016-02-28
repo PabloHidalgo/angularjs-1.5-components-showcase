@@ -1,2 +1,3 @@
-# angularjs-fast-start
-AngularJS 1.5 fast development application template scaffolder.
+# angularjs-1.5-components-showcase
+
+Proof of concept project showing new angularjs component generic service & flexible & module project feature-like structure with nested states sharing data, behavior, etc...
