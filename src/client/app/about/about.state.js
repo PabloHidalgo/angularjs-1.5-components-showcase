@@ -26,7 +26,7 @@
 										parent: 'shell',
 										views: {
                         'content@shell': {
-			                		templateUrl: 'app/about/index/index.html'
+			                		templateUrl: 'app/about/index.html'
 												}
 										}
                 }

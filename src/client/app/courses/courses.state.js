@@ -24,7 +24,7 @@
 													//checkout this github topic & git:
 													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
 													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html'
+													templateUrl: 'app/courses/index.html'
 												}
 										},
                     resolve: {
@@ -49,7 +49,7 @@
 													//checkout this github topic & git:
 													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
 													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html'
+													templateUrl: 'app/courses/index.html'
 												}
 										},
                     resolve: {
@@ -73,7 +73,7 @@
 													//checkout this github topic & git:
 													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
 													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html'
+													templateUrl: 'app/courses/index.html'
 												}
 										},
 										resolve: {
@@ -97,7 +97,7 @@
 													//checkout this github topic & git:
 													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
 													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html'
+													templateUrl: 'app/courses/index.html'
 												}
 										},
 										resolve: {
@@ -121,7 +121,7 @@
 													//checkout this github topic & git:
 													//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
 													//https://github.com/angular-ui/ui-router/issues/2547
-													templateUrl: 'app/courses/index/index.html'
+													templateUrl: 'app/courses/index.html'
 												}
 										},
 										resolve: {
