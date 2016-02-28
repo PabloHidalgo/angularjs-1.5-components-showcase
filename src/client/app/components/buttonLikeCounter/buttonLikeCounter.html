@@ -1,0 +1,13 @@
+<md-button
+  class="md-icon-button"
+  aria-label="Favorite"
+  ng-class="{'md-accent': $ctrl.liked}"
+  ng-click="$ctrl.onLike();">
+
+  <small>{{$ctrl.likes}}</small>
+  <i class="material-icons md-24">thumb_up</i>
+
+  <md-tooltip>
+    {{$ctrl.likes}} likes
+  </md-tooltip>
+</md-button>

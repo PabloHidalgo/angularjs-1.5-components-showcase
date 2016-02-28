@@ -1,0 +1,17 @@
+<course-card
+	flex="100" flex-gt-sm="25"
+	data-ng-repeat="course in $ctrl.courses"
+	course="course">
+</course-card>
+
+<div layout="column" flex="100" layout-margin layout-padding>
+	<h5>Showing {{$ctrl.courses.length}} courses</h5>
+
+	<total-like-counter
+		courses="$ctrl.courses">
+	</total-like-counter>
+
+	<total-enrolls-counter
+		courses="$ctrl.courses">
+	</total-enrolls-counter>
+</div>

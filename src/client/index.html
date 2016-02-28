@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-strict-di>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- build:css styles/lib.css -->
+        <!-- bower:css -->
+        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+        <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+        <!-- endbower -->
+        <!-- endbuild -->
+
+        <!-- build:css styles/app.css -->
+        <!-- inject:css -->
+        <link rel="stylesheet" href="/src/client/content/styles/temp.css">
+        <!-- endinject -->
+        <!-- endbuild -->
+    </head>
+
+    <body>
+        <!-- routing begins here-->
+        <div ui-view="shell"></div>
+
+        <!-- build:js js/lib.js -->
+        <!-- bower:js -->
+        <script src="/bower_components/angular/angular.js"></script>
+        <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="/bower_components/angular-aria/angular-aria.js"></script>
+        <script src="/bower_components/angular-messages/angular-messages.js"></script>
+        <script src="/bower_components/angular-material/angular-material.js"></script>
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <script src="/bower_components/toastr/toastr.js"></script>
+        <!-- endbower -->
+
+        <script src="/src/client/scripts/routeToComponent.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js js/app.js -->
+        <!-- inject:js -->
+        <script src="/src/client/app/app.module.js"></script>
+        <script src="/src/client/app/about/about.module.js"></script>
+        <script src="/src/client/app/blocks/logger/logger.module.js"></script>
+        <script src="/src/client/app/blocks/router/router.module.js"></script>
+        <script src="/src/client/app/core/core.module.js"></script>
+        <script src="/src/client/app/courses/components/components.module.js"></script>
+        <script src="/src/client/app/courses/courses.module.js"></script>
+        <script src="/src/client/app/data/data.module.js"></script>
+        <script src="/src/client/app/layout/layout.module.js"></script>
+        <script src="/src/client/app/widgets/widgets.module.js"></script>
+        <script src="/src/client/app/about/about.state.js"></script>
+        <script src="/src/client/app/blocks/logger/logger.js"></script>
+        <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
+        <script src="/src/client/app/components/buttonEnrollCounter/buttonEnrollCounter.js"></script>
+        <script src="/src/client/app/components/buttonLikeCounter/buttonLikeCounter.js"></script>
+        <script src="/src/client/app/components/totalEnrollsCounter/totalEnrollsCounter.js"></script>
+        <script src="/src/client/app/components/totalLikeCounter/totalLikeCounter.js"></script>
+        <script src="/src/client/app/core/core.config.js"></script>
+        <script src="/src/client/app/core/core.constants.js"></script>
+        <script src="/src/client/app/core/core.route.js"></script>
+        <script src="/src/client/app/courses/components/courseActions/courseActions.js"></script>
+        <script src="/src/client/app/courses/components/courseCard/courseCard.js"></script>
+        <script src="/src/client/app/courses/components/courseGallery/courseGallery.js"></script>
+        <script src="/src/client/app/courses/courses.state.js"></script>
+        <script src="/src/client/app/courses/index/index.controller.js"></script>
+        <script src="/src/client/app/courses/topFavourites/topFavourites.controller.js"></script>
+        <script src="/src/client/app/data/datacontext.js"></script>
+        <script src="/src/client/app/data/repositories/repository.abstract.js"></script>
+        <script src="/src/client/app/data/repositories/repository.courses.js"></script>
+        <script src="/src/client/app/layout/shell.state.js"></script>
+        <!-- endinject -->
+
+        <!-- inject:templates:js -->
+        <!-- endinject -->
+        <!-- endbuild -->
+    </body>
+
+</html>

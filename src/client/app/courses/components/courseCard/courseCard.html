@@ -1,0 +1,20 @@
+<md-card>
+  <img ng-src="{{::$ctrl.course.image}}" class="md-card-image" alt="{{::$ctrl.course.title}}">
+  <md-card-title>
+    <md-card-title-text>
+      <span class="md-headline">{{::$ctrl.course.title}}</span>
+    </md-card-title-text>
+  </md-card-title>
+  <md-card-content>
+    <p>
+      {{::$ctrl.course.content}}
+    </p>
+  </md-card-content>
+  <md-card-actions layout="row" layout-align="end center">
+    <course-actions
+      course="$ctrl.course"
+      on-enroll="$ctrl.onEnroll($ctrl.course);"
+      on-like="$ctrl.onLike($ctrl.course);">
+    </course-actions>
+  </md-card-actions>
+</md-card>

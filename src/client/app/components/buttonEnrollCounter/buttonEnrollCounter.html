@@ -1,0 +1,13 @@
+<md-button
+  class="md-icon-button"
+  aria-label="Favorite"
+  ng-class="{'md-accent': $ctrl.enrolled}"
+  ng-click="$ctrl.onEnroll();">
+
+  <small>{{$ctrl.enrolls}}</small>
+  <i class="material-icons md-24">turned_in</i>
+
+  <md-tooltip>
+    {{$ctrl.enrolls}} students enrolled
+  </md-tooltip>
+</md-button>
