@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@angular/router": "^0.2.0",
     "body-parser": "^1.14.2",
     "express": "^4.13.4",
     "faker": "^3.0.1",
