@@ -2,9 +2,9 @@
 	'use strict';
 
 	angular
-	  .module('app.courses')
+	  .module('app.courseGallery', [])
 	  .component('courseGallery', {
-  		templateUrl: 'app/courses/components/courseGallery/courseGallery.html',
+  		templateUrl: 'app/components/courseGallery/courseGallery.html',
 			controller: CourseGalleryController,
 	  	bindings: {
 				//inputs

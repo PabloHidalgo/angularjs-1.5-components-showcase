@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="app" ng-strict-di>
     <head>
+        <base href="/">
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title></title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -39,29 +40,31 @@
 
         <!-- build:js js/app.js -->
         <!-- inject:js -->
+        <script src="/src/client/app/components/app/app.js"></script>
         <script src="/src/client/app/blocks/logger/logger.module.js"></script>
         <script src="/src/client/app/core/core.module.js"></script>
         <script src="/src/client/app/data/data.module.js"></script>
-        <script src="/src/client/app/routes/courses/components/components.module.js"></script>
-        <script src="/src/client/app/routes/courses/courses.module.js"></script>
-        <script src="/src/client/app/blocks/logger/logger.js"></script>
-        <script src="/src/client/app/components/app/app.js"></script>
         <script src="/src/client/app/components/buttonEnrollCounter/buttonEnrollCounter.js"></script>
         <script src="/src/client/app/components/buttonLikeCounter/buttonLikeCounter.js"></script>
+        <script src="/src/client/app/components/courseActions/courseActions.js"></script>
+        <script src="/src/client/app/components/courseCard/courseCard.js"></script>
+        <script src="/src/client/app/components/courseGallery/courseGallery.js"></script>
         <script src="/src/client/app/components/navBar/navBar.js"></script>
         <script src="/src/client/app/components/totalEnrollsCounter/totalEnrollsCounter.js"></script>
         <script src="/src/client/app/components/totalLikeCounter/totalLikeCounter.js"></script>
+        <script src="/src/client/app/blocks/logger/logger.js"></script>
         <script src="/src/client/app/core/core.config.js"></script>
         <script src="/src/client/app/core/core.constants.js"></script>
         <script src="/src/client/app/data/datacontext.js"></script>
         <script src="/src/client/app/data/repositories/repository.abstract.js"></script>
         <script src="/src/client/app/data/repositories/repository.courses.js"></script>
         <script src="/src/client/app/routes/about/about.js"></script>
-        <script src="/src/client/app/routes/courses/components/courseActions/courseActions.js"></script>
-        <script src="/src/client/app/routes/courses/components/courseCard/courseCard.js"></script>
-        <script src="/src/client/app/routes/courses/components/courseGallery/courseGallery.js"></script>
-        <script src="/src/client/app/routes/courses/courses.component.js"></script>
-        <script src="/src/client/app/routes/courses/courses.state.js"></script>
+        <script src="/src/client/app/routes/courses/list/list.js"></script>
+        <script src="/src/client/app/routes/courses/myEnrollments/myEnrollments.js"></script>
+        <script src="/src/client/app/routes/courses/myFavourites/myFavourites.js"></script>
+        <script src="/src/client/app/routes/courses/topEnrollments/topEnrollments.js"></script>
+        <script src="/src/client/app/routes/courses/topFavourites/topFavourites.js"></script>
+        <script src="/src/client/app/routes/notFound/about.js"></script>
         <!-- endinject -->
 
         <!-- inject:templates:js -->

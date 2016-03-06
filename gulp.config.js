@@ -47,8 +47,9 @@ module.exports = function () {
             '!' + clientApp + '**/*.spec.js'
         ],
         jsOrder: [
-            '**/app.module.js',
+            '**/app.js',
             '**/*.module.js',
+            '**/components/**/*.js',
             '**/*.js'
         ],
         less: client + 'content/styles/**/*.less',

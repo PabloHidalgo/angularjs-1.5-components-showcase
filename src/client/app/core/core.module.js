@@ -4,7 +4,6 @@
 	angular
 	  .module('app.core', [
 	  	'blocks.logger',
-	  	'ngComponentRouter',
 			'ngMaterial'
 	  ]);
 })();

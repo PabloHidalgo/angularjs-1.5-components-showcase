@@ -2,9 +2,9 @@
 	'use strict';
 
 	angular
-	  .module('app.courses')
+	  .module('app.courseActions', [])
 	  .component('courseActions', {
-  		templateUrl: 'app/courses/components/courseActions/courseActions.html',
+  		templateUrl: 'app/components/courseActions/courseActions.html',
 	  	bindings: {
 				//inputs
 	  		course: '<',
