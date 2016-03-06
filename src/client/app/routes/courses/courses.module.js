@@ -1,6 +1,6 @@
-(function() {
-	'use strict';
-
-	angular
-	  .module('app.courses', []);
-})();
+// (function() {
+// 	'use strict';
+//
+// 	angular
+// 	  .module('app.courses', []);
+// })();

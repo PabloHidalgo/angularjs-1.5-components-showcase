@@ -1,5 +1,7 @@
-<nav-bar></nav-bar>
+<div layout="column">
+  <nav-bar></nav-bar>
 
-<main>
-  <ng-outlet></ng-outlet>
-</main>
+  <main layout="row">
+    <md-content ng-outlet></md-content>
+  </main>
+</div>

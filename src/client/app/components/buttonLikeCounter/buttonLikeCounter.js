@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-	  .module('app.components')
+	  .module('app.buttonLikeCounter', [])
 	  .component('buttonLikeCounter', {
   		templateUrl: 'app/components/buttonLikeCounter/buttonLikeCounter.html',
 	  	bindings: {

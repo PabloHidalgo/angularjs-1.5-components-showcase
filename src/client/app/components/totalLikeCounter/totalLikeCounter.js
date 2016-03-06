@@ -2,7 +2,7 @@
 	'use strict';
 
 	angular
-	  .module('app.components')
+	  .module('app.totalLikeCounter', [])
 	  .component('totalLikeCounter', {
   		templateUrl: 'app/components/totalLikeCounter/totalLikeCounter.html',
 	  	bindings: {
