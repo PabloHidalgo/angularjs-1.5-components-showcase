@@ -20,17 +20,8 @@
     </head>
 
     <body>
-      <div layout="row" layout-align="center center" layout-padding style="background-color: red;">
-        <a style="background-color: white;" layout-margin ui-sref="courses">All Courses</a>
-        <a style="background-color: white;" layout-margin ui-sref="courses.top-favourites">Top Favourites</a>
-        <a style="background-color: white;" layout-margin ui-sref="courses.top-enrollments">Top Enrollments</a>
-        <a style="background-color: white;" layout-margin ui-sref="courses.my-favourites">My Favourites</a>
-        <a style="background-color: white;" layout-margin ui-sref="courses.my-enrollments">My Enrollments</a>
-        <a style="background-color: white;" layout-margin ui-sref="about">About</a>
-      </div>
-
-        <!-- routing begins here-->
-        <div ui-view></div>
+        <!-- app starting point -->
+        <app></app>
 
         <!-- build:js js/lib.js -->
         <!-- bower:js -->
@@ -51,7 +42,6 @@
         <script src="/src/client/app/app.module.js"></script>
         <script src="/src/client/app/about/about.module.js"></script>
         <script src="/src/client/app/blocks/logger/logger.module.js"></script>
-        <script src="/src/client/app/blocks/router/router.module.js"></script>
         <script src="/src/client/app/core/core.module.js"></script>
         <script src="/src/client/app/courses/components/components.module.js"></script>
         <script src="/src/client/app/courses/courses.module.js"></script>
@@ -60,7 +50,6 @@
         <script src="/src/client/app/widgets/widgets.module.js"></script>
         <script src="/src/client/app/about/about.state.js"></script>
         <script src="/src/client/app/blocks/logger/logger.js"></script>
-        <script src="/src/client/app/blocks/router/router-helper.provider.js"></script>
         <script src="/src/client/app/components/buttonEnrollCounter/buttonEnrollCounter.js"></script>
         <script src="/src/client/app/components/buttonLikeCounter/buttonLikeCounter.js"></script>
         <script src="/src/client/app/components/totalEnrollsCounter/totalEnrollsCounter.js"></script>
