@@ -13,7 +13,13 @@
 				parent: 'shell',
 				views: {
 						'content@shell': {
-							templateUrl: 'app/about/index.html'
+							templateUrl: 'app/about/index.html',
+							controller: function() {
+								this.$onInit = function() {
+									console.log('about::$onInit()');
+								}
+							},
+							controllerAs: 'vm'
 						}
 				}
 			});

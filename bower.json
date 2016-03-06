@@ -17,7 +17,6 @@
   ],
   "dependencies": {
     "angular": "1.5.1-build.4657+sha.6a336ba",
-    "angular-ui-router": "ui-router#master",
     "angular-material": "^1.0.5",
     "toastr": "^2.1.2"
   },
@@ -28,7 +27,6 @@
   },
   "resolutions": {
     "sinon": "^1.17.3",
-    "angular-ui-router": "master",
     "angular": "1.5.1-build.4657+sha.6a336ba"
   }
 }

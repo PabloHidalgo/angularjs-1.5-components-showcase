@@ -10,35 +10,18 @@
     function appConfig($stateProvider) {
 			$stateProvider.state('courses', {
 				url: '/courses',
-				parent: 'shell',
-				views: {
-						'content@shell': {
-							//ONLY if you hack angular-ui-router to $resolve property to scope.
-							//checkout this github topic & git:
-							//https://github.com/jonricaurte/ui-router/commit/a4cab7d110fe597810e4a2ef8c249bd31cfc4125
-							//https://github.com/angular-ui/ui-router/issues/2547
-							//templateUrl: 'app/courses/index.html',
-							template: '<h1>TEST {{vm.$resolve}}</h1>',
-							controller: function() {
-								var vm = this;
-
-								console.log('entra');
-								console.log(this);
-
-								vm.$onInit = function() {
-									console.log('courses::$onInit');
-								};
-							},
-							controllerAs: 'vm'
-						}
-				},
+				template:
+					'<course-gallery ' +
+					'	layout="row" layout-wrap ' +
+					'	courses="$resolve.courses"> ' +
+					'</course-gallery>',
 				resolve: {
 						title: function() {
 							return 'COURSES LIST'
 						},
 						courses: ['datacontext', '$q', function(datacontext, $q) {
 								return datacontext.courses.getList().then(function() {
-									return $q.when(datacontext.courses.list);
+									return datacontext.courses.list;
 								});
 						}]
 				}
