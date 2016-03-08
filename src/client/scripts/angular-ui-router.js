@@ -2321,7 +2321,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            return;
 	        $urlRouterProvider.when(state.url, ['$match', '$stateParams', function ($match, $stateParams) {
 	                if ($state.$current.navigable !== state || !common_1.equalForKeys($match, $stateParams)) {
-	                    $state.transitionTo(state, $match, { inherit: true, location: false });
+	                    $state.transitionTo(state, $match, { inherit: true });
 	                }
 	            }]);
 	    };
