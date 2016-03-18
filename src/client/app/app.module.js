@@ -11,8 +11,6 @@
       'app.components',
       'app.core',
       'app.data',
-      'app.layout',
-      'app.widgets',
 
       /*
       * Feature areas

@@ -20,8 +20,7 @@
     </head>
 
     <body>
-        <!-- routing begins here-->
-        <div ui-view></div>
+        <app></app>
 
         <!-- build:js js/lib.js -->
         <!-- bower:js -->
@@ -46,10 +45,12 @@
         <script src="/src/client/app/courses/components/components.module.js"></script>
         <script src="/src/client/app/courses/courses.module.js"></script>
         <script src="/src/client/app/data/data.module.js"></script>
-        <script src="/src/client/app/layout/layout.module.js"></script>
         <script src="/src/client/app/widgets/widgets.module.js"></script>
         <script src="/src/client/app/about/about.state.js"></script>
         <script src="/src/client/app/blocks/logger/logger.js"></script>
+        <script src="/src/client/app/components/app/app.js"></script>
+        <script src="/src/client/app/components/appFooter/appFooter.js"></script>
+        <script src="/src/client/app/components/appHeader/appHeader.js"></script>
         <script src="/src/client/app/components/buttonEnrollCounter/buttonEnrollCounter.js"></script>
         <script src="/src/client/app/components/buttonLikeCounter/buttonLikeCounter.js"></script>
         <script src="/src/client/app/components/totalEnrollsCounter/totalEnrollsCounter.js"></script>
@@ -64,7 +65,6 @@
         <script src="/src/client/app/data/datacontext.js"></script>
         <script src="/src/client/app/data/repositories/repository.abstract.js"></script>
         <script src="/src/client/app/data/repositories/repository.courses.js"></script>
-        <script src="/src/client/app/layout/shell.state.js"></script>
         <!-- endinject -->
 
         <!-- inject:templates:js -->

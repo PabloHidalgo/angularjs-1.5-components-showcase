@@ -10,18 +10,7 @@
     function appConfig($stateProvider) {
       $stateProvider.state('about', {
 				url: '/about',
-				parent: 'shell',
-				views: {
-						'content@shell': {
-							templateUrl: 'app/about/index.html',
-							controller: function() {
-								this.$onInit = function() {
-									console.log('about::$onInit()');
-								}
-							},
-							controllerAs: 'vm'
-						}
-				}
+				templateUrl: 'app/about/index.html'
 			});
     }
 })();
