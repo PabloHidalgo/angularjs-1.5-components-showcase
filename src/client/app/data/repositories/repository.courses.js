@@ -19,11 +19,6 @@
             getMyEnrollments: getMyEnrollments,
             enroll: enroll,
             like: like
-            // getPagedList: getPagedList,
-            // get: get,
-            // insert: insert,
-            // update: update,
-            // remove: remove
         };
 
         return repository;
@@ -121,27 +116,5 @@
 
           return null;
         }
-
-        //
-
-        // function getPagedList(tableState) {
-        //     return base.getPagedList(tableState);
-        // }
-        //
-        // function get(id) {
-        //     return base.get(id);
-        // }
-        //
-        // function insert(data) {
-        //     return base.insert(data);
-        // }
-        //
-        // function update(data) {
-        //     return base.update(data);
-        // }
-        //
-        // function remove(id) {
-        //     return base.remove(id);
-        // }
     }
 })();
