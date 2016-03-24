@@ -4,7 +4,7 @@
 	angular
 	  .module('app.courses')
 	  .component('courseGallery', {
-  		templateUrl: 'app/courses/components/courseGallery/courseGallery.html',
+  		templateUrl: 'app/courses/components/course-gallery/course-gallery.html',
 			controller: CourseGalleryController,
 	  	bindings: {
 				//inputs

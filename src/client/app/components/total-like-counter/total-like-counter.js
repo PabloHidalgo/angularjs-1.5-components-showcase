@@ -4,7 +4,7 @@
 	angular
 	  .module('app.components')
 	  .component('totalLikeCounter', {
-  		templateUrl: 'app/components/totalLikeCounter/totalLikeCounter.html',
+  		templateUrl: 'app/components/total-like-counter/total-like-counter.html',
 	  	bindings: {
   			//inputs
         courses: '<'

@@ -4,7 +4,7 @@
 	angular
 	  .module('app.components')
 	  .component('totalEnrollsCounter', {
-  		templateUrl: 'app/components/totalEnrollsCounter/totalEnrollsCounter.html',
+  		templateUrl: 'app/components/total-enrolls-counter/total-enrolls-counter.html',
 	  	bindings: {
 				//inputs
         courses: '<'

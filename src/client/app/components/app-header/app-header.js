@@ -3,8 +3,8 @@
 
 	angular
 	  .module('app.components')
-	  .component('appFooter', {
-  		templateUrl: 'app/components/appFooter/appFooter.html',
+	  .component('appHeader', {
+  		templateUrl: 'app/components/app-header/app-header.html',
 			bindings: {
 				//inputs
 

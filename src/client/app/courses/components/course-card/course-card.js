@@ -4,7 +4,7 @@
 	angular
 	  .module('app.courses')
 	  .component('courseCard', {
-  		templateUrl: 'app/courses/components/courseCard/courseCard.html',
+  		templateUrl: 'app/courses/components/course-card/course-card.html',
 	  	bindings: {
 				//inputs
 				course: '<'
