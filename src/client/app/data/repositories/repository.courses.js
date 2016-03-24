@@ -13,6 +13,10 @@
         var repository = {
             list: {},
             getList: getList,
+            getTopFavourites: getTopFavourites,
+            getTopEnrollments: getTopEnrollments,
+            getMyFavourites: getMyFavourites,
+            getMyEnrollments: getMyEnrollments,
             enroll: enroll,
             like: like
             // getPagedList: getPagedList,
@@ -25,10 +29,42 @@
         return repository;
 
         function getList() {
-            return base.getList().then(function(courses) {
-              repository.list = courses;
-              return repository.list;
-            });
+          if ( repository.list.length > 0 ) {
+            return $q.when(repository.list);
+          }
+
+          return base.getList().then(function(courses) {
+            repository.list = courses;
+            return repository.list;
+          });
+        }
+
+        function getTopFavourites() {
+          return repository.getList().then(function(courses) {
+  					var result = $filter('orderBy')(courses, 'likes', true);
+  					return $filter('limitTo')(result, 10);
+          });
+        }
+
+        function getTopEnrollments() {
+          return repository.getList().then(function(courses) {
+  					var result = $filter('orderBy')(courses, 'enrolls', true);
+            return $filter('limitTo')(result, 10);
+          });
+        }
+
+        function getMyFavourites() {
+          return repository.getList().then(function(courses) {
+            var result = $filter('orderBy')(courses, 'likes', true);
+            return $filter('filter')(result, {liked: true});
+          });
+        }
+
+        function getMyEnrollments() {
+          return repository.getList().then(function(courses) {
+  					var result = $filter('orderBy')(courses, 'enrolls', true);
+            return $filter('filter')(result, {enrolled: true});
+          });
         }
 
         function enroll(courseId) {

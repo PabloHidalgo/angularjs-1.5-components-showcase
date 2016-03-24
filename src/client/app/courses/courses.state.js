@@ -8,98 +8,85 @@
 		appConfig.$inject = ['$stateProvider'];
 
     function appConfig($stateProvider) {
-			var states = [
-					{
-							state: 'courses',
-							config: {
-									url: '/courses',
-									templateUrl: 'app/courses/index.html',
-									controller: function() {},
-									resolve: {
-											title: function() {
-												return 'COURSES LIST'
-											},
-											courses: ['datacontext', function(datacontext) {
-													return datacontext.courses.getList().then(function() {
-														return datacontext.courses.list;
-													});
-											}]
-									}
-							}
-					},
-					{
-							state: 'courses.top-favourites',
-							config: {
-									url: '/top-favourites',
-									templateUrl: 'app/courses/index.html',
-									controller: function() {},
-									resolve: {
-										title: function() {
-											return 'COURSES TOP FAVOURITES'
-										},
-										courses: ['$filter', 'courses', function($filter, courses) {
-											console.log('entra');
-											var result = $filter('orderBy')(courses, 'likes', true)
-											return $filter('limitTo')(result, 10);
-										}]
-									}
-							}
-					},
-					{
-							state: 'courses.top-enrollments',
-							config: {
-									url: '/top-enrollments',
-									templateUrl: 'app/courses/index.html',
-									controller: function() {},
-									resolve: {
-										title: function() {
-											return 'COURSES TOP ENROLLMENTS'
-										},
-										courses: ['$filter', 'courses', function($filter, courses) {
-											var result = $filter('orderBy')(courses, 'enrolls', true);
-											return $filter('limitTo')(result, 10);
-										}]
-									}
-							}
-					},
-					{
-							state: 'courses.my-favourites',
-							config: {
-									url: '/my-favourites',
-									templateUrl: 'app/courses/index.html',
-									controller: function() {},
-									resolve: {
-										title: function() {
-											return 'MY FAVOURITES COURSES'
-										},
-										courses: ['$filter', 'courses', function($filter, courses) {
-											var result = $filter('orderBy')(courses, 'likes', true);
-											return $filter('filter')(result, {liked: true});
-										}]
-									}
-							}
-					},
-					{
-							state: 'courses.my-enrollments',
-							config: {
-									url: '/my-enrollments',
-									templateUrl: 'app/courses/index.html',
-									controller: function() {},
-									resolve: {
-										title: function() {
-											return 'COURSES I\'M ENROLLED IN'
-										},
-										courses: ['$filter', 'courses', function($filter, courses) {
-											var result = $filter('orderBy')(courses, 'enrolls', true);
-											return $filter('filter')(result, {enrolled: true});
-										}]
-									}
-							}
-					}
-			];
+			var states = getStates();
 
 			states.forEach(function(state) {
-					$stateProvider.state(state.state, state.config);
+					$stateProvider.state(state);
 			});
     }
+
+		function getStates() {
+			return [
+					{
+						name: 'courses',
+						url: '/courses',
+						templateUrl: 'app/courses/index.html',
+						controller: function() {},
+						resolve: {
+								title: function() {
+									return 'COURSES LIST'
+								},
+								courses: ['datacontext', function(datacontext) {
+										return datacontext.courses.getList();
+								}]
+						}
+					},
+					{
+						name: 'courses-top-favourites',
+						url: '/courses/top-favourites',
+						templateUrl: 'app/courses/index.html',
+						controller: function() {},
+						resolve: {
+							title: function() {
+								return 'COURSES TOP FAVOURITES'
+							},
+							courses: ['datacontext', function(datacontext) {
+								return datacontext.courses.getTopFavourites();
+							}]
+						}
+					},
+					{
+						name: 'courses-top-enrollments',
+						url: '/courses/top-enrollments',
+						templateUrl: 'app/courses/index.html',
+						controller: function() {},
+						resolve: {
+							title: function() {
+								return 'COURSES TOP ENROLLMENTS'
+							},
+							courses: ['datacontext', function(datacontext) {
+								return datacontext.courses.getTopEnrollments();
+							}]
+						}
+					},
+					{
+						name: 'courses-my-favourites',
+						url: '/courses/my-favourites',
+						templateUrl: 'app/courses/index.html',
+						controller: function() {},
+						resolve: {
+							title: function() {
+								return 'MY FAVOURITES COURSES'
+							},
+							courses: ['datacontext', function(datacontext) {
+								return datacontext.courses.getMyFavourites();
+							}]
+						}
+					},
+					{
+						name: 'courses-my-enrollments',
+						url: '/courses/my-enrollments',
+						templateUrl: 'app/courses/index.html',
+						controller: function() {},
+						resolve: {
+							title: function() {
+								return 'COURSES I\'M ENROLLED IN'
+							},
+							courses: ['datacontext', function(datacontext) {
+								return datacontext.courses.getMyEnrollments();
+							}]
+						}
+					}
+			];
+		}
 })();
