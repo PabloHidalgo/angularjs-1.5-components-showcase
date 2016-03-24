@@ -2,7 +2,7 @@
 
 AngularJS 1.5 DEMO Project that aims to show how easy is to build a scalable & modular angularjs component based application architecture using ui-router 1.0, angularjs 1.5 and some basic tips!.
 
-Features:
+* FEATURES
 
 - Full component based application architecture (dumb & smart components, components hierarchy construction, etc...) looking forward to routable-components!
 
@@ -14,13 +14,15 @@ Features:
 
 - Built-in RESTful API server on top of json-server combined with faker that generates unique data for each gulp session. It provides basic data for application.
 
-Instructions:
+* INSTRUCTIONS
 
-npm install
-bower install
-gulp serve-dev & enjoy!
+- npm install
+- bower install
+- gulp serve-dev
 
-Credits to:
+enjoy!
+
+* CREDITS TO
 
 - John Papa (main causer that I didn't left angularjs learning ending 2012: thanks for all your contribution to the community...articles, videos, demos, poc, projects, tips, courses, comments, etc...)
   - gulpfile taken from his HotTowel project!
