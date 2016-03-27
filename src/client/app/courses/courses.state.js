@@ -20,8 +20,7 @@
 					{
 						name: 'courses',
 						url: '/courses',
-						templateUrl: 'app/courses/index.html',
-						controller: function() {},
+						component: 'courses',
 						resolve: {
 								title: function() {
 									return 'COURSES LIST'
@@ -34,8 +33,7 @@
 					{
 						name: 'courses-top-favourites',
 						url: '/courses/top-favourites',
-						templateUrl: 'app/courses/index.html',
-						controller: function() {},
+						component: 'courses',
 						resolve: {
 							title: function() {
 								return 'COURSES TOP FAVOURITES'
@@ -48,8 +46,7 @@
 					{
 						name: 'courses-top-enrollments',
 						url: '/courses/top-enrollments',
-						templateUrl: 'app/courses/index.html',
-						controller: function() {},
+						component: 'courses',
 						resolve: {
 							title: function() {
 								return 'COURSES TOP ENROLLMENTS'
@@ -62,8 +59,7 @@
 					{
 						name: 'courses-my-favourites',
 						url: '/courses/my-favourites',
-						templateUrl: 'app/courses/index.html',
-						controller: function() {},
+						component: 'courses',
 						resolve: {
 							title: function() {
 								return 'MY FAVOURITES COURSES'
@@ -76,8 +72,7 @@
 					{
 						name: 'courses-my-enrollments',
 						url: '/courses/my-enrollments',
-						templateUrl: 'app/courses/index.html',
-						controller: function() {},
+						component: 'courses',
 						resolve: {
 							title: function() {
 								return 'COURSES I\'M ENROLLED IN'

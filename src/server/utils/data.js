@@ -29,7 +29,7 @@ function createCourses(teachers) {
 			subtitle: faker.lorem.sentence(),
 			content: faker.lorem.paragraphs(faker.random.number(2) + 1),
 			author: faker.fake('{{name.lastName}}, {{name.firstName}} {{name.suffix}}'), //todo: deprecate in favor of teacher
-			image: faker.image.image(480, 270, true),
+			image: faker.image.image(340, 150, true),
 			likes: faker.random.number(100), //todo: link with students faker data
 			liked: liked,
 			enrolls: faker.random.number(100), //todo: link with students faker data

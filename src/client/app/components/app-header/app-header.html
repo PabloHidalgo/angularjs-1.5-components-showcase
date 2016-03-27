@@ -1,8 +1,13 @@
-<div layout="row" layout-align="center center" layout-padding style="background-color: red;">
-  <a style="background-color: white;" layout-margin ui-sref="courses">All Courses</a>
-  <a style="background-color: white;" layout-margin ui-sref="courses-top-favourites">Top Favourites</a>
-  <a style="background-color: white;" layout-margin ui-sref="courses-top-enrollments">Top Enrollments</a>
-  <a style="background-color: white;" layout-margin ui-sref="courses-my-favourites">My Favourites</a>
-  <a style="background-color: white;" layout-margin ui-sref="courses-my-enrollments">My Enrollments</a>
-  <a style="background-color: white;" layout-margin ui-sref="about">About</a>
+<div layout="row" layout-padding>
+  <md-button ng-repeat-start="item in $ctrl.menuItems"
+              class="capitalize"
+             ui-sref-active="md-warn" ui-sref="{{item.sref}}">
+      <div class="md-tile-content">
+          <i class="material-icons md-36">{{item.icon}}</i>
+      </div>
+      <div class="md-tile-content">
+          {{item.name}}
+      </div>
+  </md-button>
+  <md-divider ng-repeat-end></md-divider>
 </div>
