@@ -10,7 +10,7 @@
     function appConfig($stateProvider) {
       $stateProvider.state('about', {
 				url: '/about',
-				templateUrl: 'app/about/index.html'
+				component: 'about'
 			});
     }
 })();
