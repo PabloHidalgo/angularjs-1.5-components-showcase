@@ -1,10 +1,13 @@
 var faker = require('faker');
+var truncate = require('truncate');
 
 module.exports = function() {
-	var teachers = createTeachers();
-	var courses = createCourses(teachers);
+	var students = createStudents();
+	var teachers = createTeachers(students);
+	var courses = createCourses(students, teachers);
 
 	var data = {
+		students: students,
 		teachers: teachers,
 		courses: courses
 	};
@@ -12,27 +15,75 @@ module.exports = function() {
 	return data;
 };
 
-function createTeachers() {
-	return [];
+function createStudents() {
+	var students = [];
+
+	for ( var i = 0; i < faker.random.number(100) + 25; i++ ) {
+		var gender = ( faker.random.boolean() ) ? 'women' : 'men';
+
+		var student = {
+			id: faker.random.uuid(),
+			name: faker.fake('{{name.lastName}}, {{name.firstName}} {{name.suffix}}'),
+			image: createPortraitImageUrl(gender)
+		};
+
+		students.push(student);
+	}
+
+	return students;
 }
 
-function createCourses(teachers) {
+function createTeachers(students) {
+	var teachers = [];
+
+	for ( var i = 0; i < faker.random.number(100) + 25; i++ ) {
+		var gender = ( faker.random.boolean() ) ? 'women' : 'men';
+
+		var teacher = {
+			id: faker.random.uuid(),
+			name: faker.fake('{{name.lastName}}, {{name.firstName}} {{name.suffix}}'),
+			image: createPortraitImageUrl(gender),
+			likes: parseTeacherLikes(students)
+		};
+
+		teachers.push(teacher);
+	}
+
+	return teachers;
+}
+
+function parseTeacherLikes(students) {
+	var result = 0;
+
+	//we run through each student
+	for ( var i = 0; i < students.length; i++ ) {
+		if ( faker.random.number(5) <= 1 ) break;
+		if ( faker.random.boolean() ) { result++; }
+	}
+
+	return result;
+}
+
+function createCourses(students, teachers) {
 	var courses = [];
 
 	for ( var i = 0; i < faker.random.number(50) + 15; i++ ) {
-		var enrolled = faker.random.boolean();
-		var liked = faker.random.boolean();
+		var likes = faker.random.number(100);
+		var liked = ( likes > 0 ) ? faker.random.boolean() : false;
+
+		var enrolls = faker.random.number(100);
+		var enrolled = ( enrolls > 0 ) ? faker.random.boolean() : false;
 
 		var course = {
 			id: faker.random.uuid(),
-			title: faker.lorem.sentence(8),
+			title: faker.lorem.sentence(2),
 			subtitle: faker.lorem.sentence(),
-			content: faker.lorem.paragraphs(faker.random.number(2) + 1),
+			content: truncate(faker.lorem.paragraphs(faker.random.number(2) + 1), 65),
 			author: faker.fake('{{name.lastName}}, {{name.firstName}} {{name.suffix}}'), //todo: deprecate in favor of teacher
 			image: faker.image.image(340, 150, true),
-			likes: faker.random.number(100), //todo: link with students faker data
+			likes: likes, //todo: link with students faker data
 			liked: liked,
-			enrolls: faker.random.number(100), //todo: link with students faker data
+			enrolls: enrolls, //todo: link with students faker data
 			enrolled: enrolled
 		};
 
@@ -40,6 +91,10 @@ function createCourses(teachers) {
 	}
 
 	return courses;
+}
+
+function createPortraitImageUrl(gender) {
+	return 'https://randomuser.me/api/portraits/' + gender + '/' + faker.random.number(100) + '.jpg';
 }
 
 /*

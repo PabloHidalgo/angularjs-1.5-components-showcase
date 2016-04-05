@@ -20,6 +20,8 @@
 						{ name: 'Top Enrollments', icon: 'swap_vert', sref: 'courses-top-enrollments' },
 						{ name: 'My Favourites', icon: 'thumb_up', sref: 'courses-my-favourites' },
 						{ name: 'My Enrollments', icon: 'turned_in', sref: 'courses-my-enrollments' },
+						{ name: 'Students', icon: 'face', sref: 'students' },
+						{ name: 'Teachers', icon: 'assignment_ind', sref: 'teachers' },
 						{ name: 'About', icon: 'info', sref: 'about' },
 					];
 				}

@@ -17,6 +17,8 @@
       /*
       * Feature areas
       */
-      'app.courses'
+      'app.courses',
+      'app.students',
+      'app.teachers'
     ]);
 }());
