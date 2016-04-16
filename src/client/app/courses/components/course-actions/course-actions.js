@@ -7,7 +7,13 @@
   		templateUrl: 'app/courses/components/course-actions/course-actions.html',
 	  	bindings: {
 				//inputs
-	  		course: '<',
+				courseId: '<',
+
+				totalEnrolls: '<',
+				enrolled: '<',
+
+				totalLikes: '<',
+				liked: '<',
 
         //outputs
         onEnroll: '&',
@@ -21,19 +27,19 @@
 		function CourseActionsController(datacontext) {
 			var vm = this;
 
-			vm.toggleEnrollCourse = function(course) {
+			vm.toggleEnrollCourse = function(courseId) {
 				console.log('CourseActionsController::toggleEnrollCourse');
-        console.log(course);
-				datacontext.courses.enroll(course.id).then(function() {
+        console.log(courseId);
+				datacontext.courses.enroll(courseId).then(function() {
 					return vm.onEnroll();
 				});
 				//vm.galleryCtrl.enrollCourse
 			};
 
-			vm.toggleLikeCourse = function(course) {
+			vm.toggleLikeCourse = function(courseId) {
 				console.log('CourseActionsController::toggleLikeCourse');
-        console.log(course);
-				datacontext.courses.like(course.id).then(function() {
+        console.log(courseId);
+				datacontext.courses.like(courseId).then(function() {
 					return vm.onLike();
 				});
 				//vm.galleryCtrl.enrollCourse

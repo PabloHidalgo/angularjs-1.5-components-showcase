@@ -1,11 +1,11 @@
 <button-enroll-counter
-  enrolls="$ctrl.course.enrolls"
-  enrolled="$ctrl.course.enrolled"
-  on-enroll="$ctrl.toggleEnrollCourse($ctrl.course);">
+  enrolls="$ctrl.totalEnrolls"
+  enrolled="$ctrl.enrolled"
+  on-enroll="$ctrl.toggleEnrollCourse($ctrl.courseId);">
 </button-enroll-counter>
 
 <button-like-counter
-  likes="$ctrl.course.likes"
-  liked="$ctrl.course.liked"
-  on-like="$ctrl.toggleLikeCourse($ctrl.course);">
+  likes="$ctrl.totalLikes"
+  liked="$ctrl.liked"
+  on-like="$ctrl.toggleLikeCourse($ctrl.courseId);">
 </button-like-counter>

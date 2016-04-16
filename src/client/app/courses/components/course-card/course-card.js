@@ -7,13 +7,20 @@
   		templateUrl: 'app/courses/components/course-card/course-card.html',
 	  	bindings: {
 				//inputs
-				course: '<'
+				id: '<',
+
+				title: '<',
+				content: '<',
+				image: '<',
+
+				enrolls: '<',
+				enrolled: '<',
+
+				likes: '<',
+				liked: '<',
 
 				//outputs
 	  	},
-			require: {
-		    galleryCtrl: '^courseGallery'
-		  },
 			controller: CourseCardController
 	  });
 
@@ -24,15 +31,17 @@
 
 			vm.$onInit = function() {
 				console.log('CourseCardController:vm$onInit');
-				console.log(vm.course);
+				console.log(vm);
 			}
 
-			vm.onEnroll = function(course) {
+			vm.onEnroll = function(courseId) {
 				console.log('CourseCardController::onEnroll');
+        console.log(courseId);
 			};
 
-			vm.onLike = function(course) {
+			vm.onLike = function(courseId) {
 				console.log('CourseCardController::onLike');
+        console.log(courseId);
 			};
 		}
 })();

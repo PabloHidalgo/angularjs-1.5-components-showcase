@@ -1,7 +1,9 @@
 <course-card
 	flex="100" flex-gt-sm="25"
-	data-ng-repeat="course in $ctrl.courses"
-	course="course">
+	data-ng-repeat="course in $ctrl.courses" id="course.id"
+	title="course.title" content="course.content" image="course.image"
+	enrolls="course.enrolls" enrolled="course.enrolled"
+	likes="course.likes" liked="course.liked">
 </course-card>
 
 <div layout="column" flex="100" layout-margin layout-padding>
