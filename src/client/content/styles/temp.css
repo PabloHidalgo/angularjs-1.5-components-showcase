@@ -1,3 +1,7 @@
 .md-icon-button.md-button {
   width: auto !important;
 }
+
+img.md-card-image {
+  height: auto !important;
+}
