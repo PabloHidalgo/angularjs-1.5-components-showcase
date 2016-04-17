@@ -13,8 +13,11 @@
   <md-card-actions layout="row" layout-align="end center">
     <course-actions
       course-id="$ctrl.id"
-      total-enrolls="$ctrl.enrolls" enrolled="$ctrl.enrolled" on-enroll="$ctrl.onEnroll($ctrl.id);"
-      total-likes="$ctrl.likes" liked="$ctrl.liked" on-like="$ctrl.onLike($ctrl.id);">
+      total-enrolls="$ctrl.enrolls" enrolled="$ctrl.enrolled"
+      total-likes="$ctrl.likes" liked="$ctrl.liked"
+
+      on-enroll="$ctrl.onEnroll($event.id, $event.title, $event.enrolled);"
+      on-like="$ctrl.onLike($event.id, $event.title, $event.liked);">
     </course-actions>
   </md-card-actions>
 </md-card>

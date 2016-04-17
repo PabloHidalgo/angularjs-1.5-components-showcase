@@ -36,14 +36,14 @@
 
         function getTopFavourites() {
           return repository.getList().then(function(courses) {
-  					var result = $filter('orderBy')(courses, 'likes', true);
-  					return $filter('limitTo')(result, 10);
+            var result = $filter('orderBy')(courses, 'likes', true);
+            return $filter('limitTo')(result, 10);
           });
         }
 
         function getTopEnrollments() {
           return repository.getList().then(function(courses) {
-  					var result = $filter('orderBy')(courses, 'enrolls', true);
+            var result = $filter('orderBy')(courses, 'enrolls', true);
             return $filter('limitTo')(result, 10);
           });
         }
@@ -57,7 +57,7 @@
 
         function getMyEnrollments() {
           return repository.getList().then(function(courses) {
-  					var result = $filter('orderBy')(courses, 'enrolls', true);
+            var result = $filter('orderBy')(courses, 'enrolls', true);
             return $filter('filter')(result, {enrolled: true});
           });
         }
@@ -65,43 +65,47 @@
         function enroll(courseId) {
           var course = findCourseById(repository.list, courseId);
           var courseEnrollStatus = course.enrolled;
-  				setCourseEnrollmentStatus(course, !courseEnrollStatus);
+          setCourseEnrollmentStatus(course, !courseEnrollStatus);
 
           var operation = ( courseEnrollStatus ) ? 'Unsuscribing' : 'Enrolling';
-  				console.log(operation + ' from ' + course.title + ' (' + course.id + ')...');
+          console.log(operation + ' from ' + course.title + ' (' + course.id + ')...');
 
           return base.partialUpdate(courseId, {
             enrolls: course.enrolls,
             enrolled: course.enrolled
+          }).then(function() {
+            return course;
           });
         }
 
         function setCourseEnrollmentStatus(course, status) {
-  				course.enrolled = status;
-  				course.enrolls += ( status ) ? 1 : -1;
-  				console.log(course);
-  			}
+          course.enrolled = status;
+          course.enrolls += ( status ) ? 1 : -1;
+          console.log(course);
+        }
 
         //todo: refactor courseTitle & courseId
         function like(courseId) {
           var course = findCourseById(repository.list, courseId);
           var courseLikeStatus = course.liked;
-  				setCourseLikeStatus(course, !courseLikeStatus);
+          setCourseLikeStatus(course, !courseLikeStatus);
 
           var operation = ( courseLikeStatus ) ? 'Unliking' : 'Liking';
-  				console.log(operation + ' from ' + course.title + ' (' + course.id + ')...');
+          console.log(operation + ' from ' + course.title + ' (' + course.id + ')...');
 
           return base.partialUpdate(courseId, {
             likes: course.likes,
             liked: course.liked
+          }).then(function() {
+            return course;
           });
         }
 
         function setCourseLikeStatus(course, status) {
-  				course.liked = status;
-  				course.likes += ( status ) ? 1 : -1;
-  				console.log(course);
-  			}
+          course.liked = status;
+          course.likes += ( status ) ? 1 : -1;
+          console.log(course);
+        }
 
         //todo: refactor to common module
         //findCourseById => findById()

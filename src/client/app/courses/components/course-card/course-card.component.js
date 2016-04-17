@@ -1,47 +1,58 @@
 (function() {
-	'use strict';
+  'use strict';
 
-	angular
-	  .module('app.courses')
-	  .component('courseCard', {
-  		templateUrl: 'app/courses/components/course-card/course-card.html',
-	  	bindings: {
-				//inputs
-				id: '<',
+  angular
+    .module('app.courses')
+    .component('courseCard', {
+      templateUrl: 'app/courses/components/course-card/course-card.html',
+      bindings: {
+        //inputs
+        id: '<',
 
-				title: '<',
-				content: '<',
-				image: '<',
+        title: '<',
+        content: '<',
+        image: '<',
 
-				enrolls: '<',
-				enrolled: '<',
+        enrolls: '<',
+        enrolled: '<',
 
-				likes: '<',
-				liked: '<',
+        likes: '<',
+        liked: '<',
 
-				//outputs
-	  	},
-			controller: CourseCardController
-	  });
+        //outputs
+      },
+      controller: CourseCardController
+    });
 
-		CourseCardController.$inject = ['datacontext'];
+    CourseCardController.$inject = ['datacontext', '$mdToast'];
 
-		function CourseCardController(datacontext) {
-			var vm = this;
+    function CourseCardController(datacontext, $mdToast) {
+      var vm = this;
 
-			vm.$onInit = function() {
-				console.log('CourseCardController:vm$onInit');
-				console.log(vm);
-			}
+      vm.$onInit = function() {
+        console.log('CourseCardController:vm$onInit');
+        console.log(vm);
+      }
 
-			vm.onEnroll = function(courseId) {
-				console.log('CourseCardController::onEnroll');
-        console.log(courseId);
-			};
+      vm.onEnroll = function(courseId, title, enrolled) {
+        console.log('CourseCardController::onEnroll - ' + enrolled);
+        console.log(arguments);
 
-			vm.onLike = function(courseId) {
-				console.log('CourseCardController::onLike');
-        console.log(courseId);
-			};
-		}
+        var message = 'You ' + ( enrolled ? 'enrolled in' : 'unsubscribed from' ) + ' ' + title;
+        showToast(message);
+      };
+
+      vm.onLike = function(courseId, title, liked) {
+        console.log('CourseCardController::onLike - ' + liked);
+        console.log(arguments);
+
+        var message = 'You ' + ( liked ? 'liked' : 'unliked' ) + ' ' + title;
+        showToast(message);
+      };
+
+      function showToast(message) {
+        var toast = $mdToast.simple().content(message).position('bottom right');
+        $mdToast.show(toast);
+      }
+    }
 })();

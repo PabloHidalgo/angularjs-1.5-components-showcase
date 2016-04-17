@@ -5,3 +5,7 @@
 img.md-card-image {
   height: auto !important;
 }
+
+.toggle-action {
+  padding-left: 25px;
+}

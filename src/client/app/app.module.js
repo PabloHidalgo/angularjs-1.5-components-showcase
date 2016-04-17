@@ -2,8 +2,9 @@
     'use strict';
 
     angular.module('app', [
-	  	'ui.router',
-			'ngMaterial',
+      'ui.router',
+      'ui.router.state.events',
+      'ngMaterial',
 
       /*
       * Everybody has access to these.

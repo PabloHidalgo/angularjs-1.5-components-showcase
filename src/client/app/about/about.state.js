@@ -1,16 +1,25 @@
 (function() {
-	'use strict';
+  'use strict';
 
-	angular
-	  .module('app.about')
-	  .config(appConfig);
+  angular
+    .module('app.about')
+    .config(appConfig);
 
-		appConfig.$inject = ['$stateProvider'];
+    appConfig.$inject = ['$stateProvider'];
 
     function appConfig($stateProvider) {
       $stateProvider.state('about', {
-				url: '/about',
-				component: 'about'
-			});
+        name: 'about',
+        url: '/about',
+        component: 'about',
+        resolve: {
+          students: ['datacontext', function(datacontext) {
+              return datacontext.students.getList();
+          }]
+        },
+        data: {
+          title: 'ABOUT'
+        }
+      });
     }
 })();

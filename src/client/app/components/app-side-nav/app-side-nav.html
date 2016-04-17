@@ -1,0 +1,49 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z2" role="sidenav" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+  <md-toolbar class="md-medium-tall md-hue-2" layout-align="end end">
+    <div class="md-toolbar-tools" layout layout-padding>
+      <md-icon>{{data.user.icon}}</md-icon>
+      <div layout="column" layout-padding>
+        <span class="md-body-2">{{data.user.name}}</span>
+        <span class="md-caption">{{data.user.email}}</span>
+      </div>
+      <span flex></span>
+      <md-button class="md-icon-button" aria-label="User Settings" ng-click="toast('Logout')">
+        <md-icon>more_vert</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+  <md-content role="navigation">
+    <md-list ng-repeat="section in $ctrl.sections">
+      <!-- toggle -->
+      <md-list-item ng-click="section.expand = !section.expand" ng-if="::section.type === 'toggle'">
+        <p class="md-primary">{{section.name}}</p>
+        <span flex></span>
+        <md-icon class="md-primary md-icon-button">{{section.expand ? 'arrow_drop_up' : 'arrow_drop_down'}}</md-icon>
+      </md-list-item>
+
+      <md-divider ng-if="::section.type === 'toggle'"></md-divider>
+
+      <!-- toggle link -->
+      <md-list-item ng-show="section.expand" ng-repeat="action in section.actions"
+        ui-sref="{{::action.state}}" ng-if="::section.type === 'toggle'" class="toggle-action">
+        <md-icon>{{::action.icon}}</md-icon>
+        <p class="md-body-2">{{::action.name}}</p>
+        <span flex></span>
+        <md-icon>chevron_right</md-icon>
+      </md-list-item>
+      <!-- toggle link -->
+      <!-- toggle -->
+
+      <!-- link -->
+      <md-list-item ng-if="::section.type === 'link'" ui-sref="{{::section.state}}">
+        <md-icon>{{::section.icon}}</md-icon>
+        <p class="md-body-2">{{::section.name}}</p>
+        <span flex></span>
+        <md-icon>chevron_right</md-icon>
+      </md-list-item>
+      <!-- link -->
+
+      <md-divider ng-if="::section.type === 'link'"></md-divider>
+    </md-list>
+  </md-content>
+</md-sidenav>

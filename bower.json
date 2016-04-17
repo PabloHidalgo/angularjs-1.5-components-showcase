@@ -28,6 +28,7 @@
   "resolutions": {
     "sinon": "^1.17.3",
     "angular": "1.5.1-build.4657+sha.6a336ba",
-    "angular-material": "master"
+    "angular-material": "master",
+    "angular-ui-router": "1.0.0-alpha.4"
   }
 }

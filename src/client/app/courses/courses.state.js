@@ -1,87 +1,87 @@
 (function() {
-	'use strict';
+  'use strict';
 
-	angular
-	  .module('app.courses')
-	  .config(appConfig);
+  angular
+    .module('app.courses')
+    .config(appConfig);
 
-		appConfig.$inject = ['$stateProvider'];
+    appConfig.$inject = ['$stateProvider'];
 
     function appConfig($stateProvider) {
-			var states = getStates();
+      var states = getStates();
 
-			states.forEach(function(state) {
-					$stateProvider.state(state);
-			});
+      states.forEach(function(state) {
+          $stateProvider.state(state);
+      });
     }
 
-		function getStates() {
-			return [
-					{
-						name: 'courses',
-						url: '/courses',
-						component: 'courses',
-						resolve: {
-								title: function() {
-									return 'COURSES LIST'
-								},
-								courses: ['datacontext', function(datacontext) {
-										return datacontext.courses.getList();
-								}]
-						}
-					},
-					{
-						name: 'courses-top-favourites',
-						url: '/courses/top-favourites',
-						component: 'courses',
-						resolve: {
-							title: function() {
-								return 'COURSES TOP FAVOURITES'
-							},
-							courses: ['datacontext', function(datacontext) {
-								return datacontext.courses.getTopFavourites();
-							}]
-						}
-					},
-					{
-						name: 'courses-top-enrollments',
-						url: '/courses/top-enrollments',
-						component: 'courses',
-						resolve: {
-							title: function() {
-								return 'COURSES TOP ENROLLMENTS'
-							},
-							courses: ['datacontext', function(datacontext) {
-								return datacontext.courses.getTopEnrollments();
-							}]
-						}
-					},
-					{
-						name: 'courses-my-favourites',
-						url: '/courses/my-favourites',
-						component: 'courses',
-						resolve: {
-							title: function() {
-								return 'MY FAVOURITES COURSES'
-							},
-							courses: ['datacontext', function(datacontext) {
-								return datacontext.courses.getMyFavourites();
-							}]
-						}
-					},
-					{
-						name: 'courses-my-enrollments',
-						url: '/courses/my-enrollments',
-						component: 'courses',
-						resolve: {
-							title: function() {
-								return 'COURSES I\'M ENROLLED IN'
-							},
-							courses: ['datacontext', function(datacontext) {
-								return datacontext.courses.getMyEnrollments();
-							}]
-						}
-					}
-			];
-		}
+    function getStates() {
+      return [
+          {
+            name: 'courses',
+            url: '/courses',
+            component: 'courses',
+            resolve: {
+              courses: ['datacontext', function(datacontext) {
+                  return datacontext.courses.getList();
+              }]
+            },
+            data: {
+              title: 'COURSES LIST'
+            }
+          },
+          {
+            name: 'courses-top-favourites',
+            url: '/courses/top-favourites',
+            component: 'courses',
+            resolve: {
+              courses: ['datacontext', function(datacontext) {
+                return datacontext.courses.getTopFavourites();
+              }]
+            },
+            data: {
+              title: 'COURSES TOP FAVOURITES'
+            }
+          },
+          {
+            name: 'courses-top-enrollments',
+            url: '/courses/top-enrollments',
+            component: 'courses',
+            resolve: {
+              courses: ['datacontext', function(datacontext) {
+                return datacontext.courses.getTopEnrollments();
+              }]
+            },
+            data: {
+              title: 'COURSES TOP ENROLLMENTS'
+            }
+          },
+          {
+            name: 'courses-my-favourites',
+            url: '/courses/my-favourites',
+            component: 'courses',
+            resolve: {
+              courses: ['datacontext', function(datacontext) {
+                return datacontext.courses.getMyFavourites();
+              }]
+            },
+            data: {
+              title: 'MY FAVOURITES COURSES'
+            }
+          },
+          {
+            name: 'courses-my-enrollments',
+            url: '/courses/my-enrollments',
+            component: 'courses',
+            resolve: {
+              courses: ['datacontext', function(datacontext) {
+                return datacontext.courses.getMyEnrollments();
+              }]
+            },
+            data: {
+              title: 'COURSES I\'M ENROLLED IN'
+            }
+          }
+      ];
+    }
 })();

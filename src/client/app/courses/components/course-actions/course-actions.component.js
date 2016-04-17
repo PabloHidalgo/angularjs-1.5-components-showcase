@@ -1,48 +1,60 @@
 (function() {
-	'use strict';
+  'use strict';
 
-	angular
-	  .module('app.courses')
-	  .component('courseActions', {
-  		templateUrl: 'app/courses/components/course-actions/course-actions.html',
-	  	bindings: {
-				//inputs
-				courseId: '<',
+  angular
+    .module('app.courses')
+    .component('courseActions', {
+      templateUrl: 'app/courses/components/course-actions/course-actions.html',
+      bindings: {
+        //inputs
+        courseId: '<',
 
-				totalEnrolls: '<',
-				enrolled: '<',
+        totalEnrolls: '<',
+        enrolled: '<',
 
-				totalLikes: '<',
-				liked: '<',
+        totalLikes: '<',
+        liked: '<',
 
         //outputs
         onEnroll: '&',
         onLike: '&'
-	  	},
-			controller: CourseActionsController
-	  });
+      },
+      controller: CourseActionsController
+    });
 
-		CourseActionsController.$inject = ['datacontext'];
+    CourseActionsController.$inject = ['datacontext'];
 
-		function CourseActionsController(datacontext) {
-			var vm = this;
+    function CourseActionsController(datacontext) {
+      var vm = this;
 
-			vm.toggleEnrollCourse = function(courseId) {
-				console.log('CourseActionsController::toggleEnrollCourse');
+      vm.toggleEnrollCourse = function(courseId) {
+        console.log('CourseActionsController::toggleEnrollCourse');
         console.log(courseId);
-				datacontext.courses.enroll(courseId).then(function() {
-					return vm.onEnroll();
-				});
-				//vm.galleryCtrl.enrollCourse
-			};
 
-			vm.toggleLikeCourse = function(courseId) {
-				console.log('CourseActionsController::toggleLikeCourse');
+        datacontext.courses.enroll(courseId).then(function(course) {
+          return vm.onEnroll({
+              $event: {
+                id: course.id,
+                title: course.title,
+                enrolled: course.enrolled
+              }
+            });
+        });
+      };
+
+      vm.toggleLikeCourse = function(courseId) {
+        console.log('CourseActionsController::toggleLikeCourse');
         console.log(courseId);
-				datacontext.courses.like(courseId).then(function() {
-					return vm.onLike();
-				});
-				//vm.galleryCtrl.enrollCourse
-			};
-		}
+
+        datacontext.courses.like(courseId).then(function(course) {
+          return vm.onLike({
+              $event: {
+                id: course.id,
+                title: course.title,
+                liked: course.liked
+              }
+            });
+        });
+      };
+    }
 })();

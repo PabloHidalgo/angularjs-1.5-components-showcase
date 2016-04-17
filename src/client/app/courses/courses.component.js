@@ -1,22 +1,21 @@
 (function() {
-	'use strict';
+  'use strict';
 
-	angular
-	  .module('app.courses')
-	  .component('courses', {
-  		template:
-      '<h1 style="text-align: center;">{{$ctrl.title}}</h1> ' +
+  angular
+    .module('app.courses')
+    .component('courses', {
+      template:
       '<course-gallery ' +
-      	'layout="row" layout-wrap ' +
-      	'courses="$ctrl.courses"> ' +
+        'layout="row" layout-wrap ' +
+        'courses="$ctrl.courses"> ' +
       '</course-gallery>',
-			bindings: {
-				//inputs
+      bindings: {
+        //inputs
         title: '<',
         courses: '<'
 
-				//outputs
-			},
-			controller: function() { }
-	  });
+        //outputs
+      },
+      controller: function() { }
+    });
 })();
