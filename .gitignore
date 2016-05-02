@@ -1,5 +1,10 @@
 /.tmp
+/@old
+/build
 /node_modules
 /bower_components
 /report
+aws.config.js
 npm-debug.log
+*.awspublish-*
+app.constants.json

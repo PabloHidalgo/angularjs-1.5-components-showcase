@@ -38,7 +38,7 @@ module.exports = function () {
         fonts: bower.directory + 'font-awesome/fonts/**/*.*',
         html: client + '**/*.html',
         htmltemplates: clientApp + '**/*.html',
-        images: client + 'content/images/**/*.*',
+        images: client + 'assets/images/**/*.*',
         index: './src/client/index.html',
         // app js, with no specs
         js: [
@@ -51,8 +51,8 @@ module.exports = function () {
             '**/*.module.js',
             '**/*.js'
         ],
-        less: client + 'content/styles/**/*.less',
-        sass: client + 'content/styles/**/*.scss',
+        less: client + 'assets/less/**/*.less',
+        sass: client + 'assets/scss/**/*.scss',
         report: report,
         root: root,
         server: server,
@@ -87,7 +87,7 @@ module.exports = function () {
         templateCache: {
             file: 'templates.js',
             options: {
-                module: 'app.core',
+                module: 'app',
                 root: 'app/',
                 standalone: false
             }

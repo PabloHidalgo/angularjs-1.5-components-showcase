@@ -1,1 +1,15 @@
-<h5>You are enrolled in {{$ctrl.calculateEnrollsCounter($ctrl.courses)}} courses.</h5>
+<h5 ng-if="!$ctrl.display || $ctrl.display === 'text'">You are enrolled in {{$ctrl.calculateEnrollsCounter($ctrl.courses)}} courses.</h5>
+
+<md-button
+  ng-if="$ctrl.display == 'icon'"
+  class="md-icon-button"
+  aria-label="Favorite"
+  ui-sref='courses-my-enrollments'>
+
+  <small>{{$ctrl.calculateEnrollsCounter($ctrl.courses)}}</small>
+  <i class="material-icons md-24">turned_in</i>
+
+  <md-tooltip>
+    You are enrolled in {{$ctrl.calculateEnrollsCounter($ctrl.courses)}} courses.
+  </md-tooltip>
+</md-button>

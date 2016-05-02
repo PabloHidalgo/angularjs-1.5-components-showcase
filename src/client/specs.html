@@ -50,6 +50,8 @@
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
     <script src="/bower_components/angular-messages/angular-messages.js"></script>
     <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/toastr/toastr.js"></script>
     <script src="/bower_components/angular-mocks/angular-mocks.js"></script>
     <script src="/bower_components/bardjs/dist/bard.js"></script>
     <script src="/bower_components/bardjs/dist/bard-ngRouteTester.js"></script>
@@ -57,9 +59,41 @@
 
     <!-- inject:js -->
     <script src="/src/client/app/app.module.js"></script>
-    <script src="/src/client/app/core/core.module.js"></script>
-    <script src="/src/client/app/widgets/widgets.module.js"></script>
-    <script src="/src/client/app/core/config.js"></script>
+    <script src="/src/client/app/about/about.module.js"></script>
+    <script src="/src/client/app/components/components.module.js"></script>
+    <script src="/src/client/app/courses/courses.module.js"></script>
+    <script src="/src/client/app/data/data.module.js"></script>
+    <script src="/src/client/app/students/students.module.js"></script>
+    <script src="/src/client/app/teachers/teachers.module.js"></script>
+    <script src="/src/client/app/about/about.component.js"></script>
+    <script src="/src/client/app/about/about.state.js"></script>
+    <script src="/src/client/app/app.component.js"></script>
+    <script src="/src/client/app/app.config.js"></script>
+    <script src="/src/client/app/app.state.js"></script>
+    <script src="/src/client/app/components/app-footer/app-footer.component.js"></script>
+    <script src="/src/client/app/components/app-header/app-header.component.js"></script>
+    <script src="/src/client/app/components/app-side-nav/app-side-nav.component.js"></script>
+    <script src="/src/client/app/components/app-toolbar/app-toolbar.component.js"></script>
+    <script src="/src/client/app/components/button-enroll-counter/button-enroll-counter.component.js"></script>
+    <script src="/src/client/app/components/button-like-counter/button-like-counter.component.js"></script>
+    <script src="/src/client/app/components/total-enrolls-counter/total-enrolls-counter.component.js"></script>
+    <script src="/src/client/app/components/total-like-counter/total-like-counter.component.js"></script>
+    <script src="/src/client/app/courses/components/course-actions/course-actions.component.js"></script>
+    <script src="/src/client/app/courses/components/course-card/course-card.component.js"></script>
+    <script src="/src/client/app/courses/components/course-gallery/course-gallery.component.js"></script>
+    <script src="/src/client/app/courses/courses.component.js"></script>
+    <script src="/src/client/app/courses/courses.state.js"></script>
+    <script src="/src/client/app/data/datacontext.js"></script>
+    <script src="/src/client/app/data/repositories/repository.abstract.js"></script>
+    <script src="/src/client/app/data/repositories/repository.courses.js"></script>
+    <script src="/src/client/app/data/repositories/repository.students.js"></script>
+    <script src="/src/client/app/data/repositories/repository.teachers.js"></script>
+    <script src="/src/client/app/students/components/students-list-item/students-list-item.component.js"></script>
+    <script src="/src/client/app/students/components/students-list/students-list.component.js"></script>
+    <script src="/src/client/app/students/students.component.js"></script>
+    <script src="/src/client/app/students/students.state.js"></script>
+    <script src="/src/client/app/teachers/teachers.component.js"></script>
+    <script src="/src/client/app/teachers/teachers.state.js"></script>
     <!-- endinject -->
 
     <!-- inject:spechelpers:js -->

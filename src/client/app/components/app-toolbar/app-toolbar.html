@@ -5,6 +5,14 @@
     </md-button>
     <h4 class="md-title">{{$ctrl.title}}</h4>
     <span flex></span>
+    <total-enrolls-counter
+      display="'icon'"
+      courses="$ctrl.courses">
+    </total-enrolls-counter>
+    <total-like-counter
+      display="'icon'"
+      courses="$ctrl.courses">
+    </total-like-counter>
     <md-button class="md-icon-button" ng-repeat="button in $ctrl.items.buttons" aria-label={{button.name}} ng-click="toast(button.link)">
       <md-icon>{{button.icon}}</md-icon>
     </md-button>

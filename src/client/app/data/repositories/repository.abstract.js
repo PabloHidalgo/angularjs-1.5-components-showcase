@@ -5,14 +5,12 @@
         .module('app.data')
         .factory('repository.abstract', AbstractRepository);
 
-    AbstractRepository.$inject = ['$http'];
+    AbstractRepository.$inject = ['$http', 'ENVIRONMENT'];
 
     /* @ngInject */
-    function AbstractRepository($http) {
-        var urlBase = 'http://localhost:3000/api';
-
+    function AbstractRepository($http, ENVIRONMENT) {
         function Ctor(resourceName) {
-            this.urlBase = urlBase + '/' + resourceName;
+            this.urlBase = ENVIRONMENT.api + '/' + resourceName;
 
             this.getList = getList.bind(this);
             this.get = get.bind(this);

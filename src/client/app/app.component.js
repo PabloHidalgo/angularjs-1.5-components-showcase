@@ -13,24 +13,29 @@
         }
     });
 
-  AppController.$inject = ['$rootScope', '$mdSidenav'];
+  AppController.$inject = ['$rootScope', '$mdSidenav', 'datacontext'];
 
-  function AppController($rootScope, $mdSidenav) {
-    var vm = this;
+  function AppController($rootScope, $mdSidenav, datacontext) {
+    var $ctrl = this;
 
-    vm.data = getData();
-    vm.toggleSidenav = toggleSidenav;
+    $ctrl.data = getData();
+    $ctrl.courses = [];
 
-    $rootScope.$on('$stateChangeSuccess',updateTitle);
+    $ctrl.$onInit = $onInit;
+    $rootScope.$on('$stateChangeSuccess', stateChangeSuccessHandler);
 
-    function toggleSidenav(menu) {
-      $mdSidenav(menu).toggle();
+    function $onInit() {
+      datacontext.courses.getList().then(function() {
+        $ctrl.courses = datacontext.courses.list;
+      });
+    }
+
+    function stateChangeSuccessHandler(event, toState) {
+      updateTitle(event, toState);
     }
 
     function updateTitle(event, toState) {
-      $rootScope.title = toState.data.title;
-
-      vm.title = toState.data.title;
+      $rootScope.title = $ctrl.title = toState.data.title;
     }
 
     function getData() {
@@ -69,6 +74,12 @@
                 state: 'courses-my-enrollments'
               }]
             },
+            // {
+            //   name: 'Timeline',
+            //   icon: '',
+            //   type: 'link',
+            //   state: 'timeline'
+            // },
             {
               name: 'Students',
               icon: 'face',

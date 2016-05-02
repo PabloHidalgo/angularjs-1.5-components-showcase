@@ -1,0 +1,94 @@
+// Timeline
+$timeline-point: 100px;
+
+.timeline {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0;
+  .timeline-widget {
+    z-index: 4;
+    opacity: 0;
+    overflow: hidden;
+  }
+  .timeline-point {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: $timeline-point;
+    height: $timeline-point;
+    transform: translate3D(50%, -50%, 0);
+    border-radius: 50%;
+    z-index: 2;
+    overflow: hidden;
+  }
+  .timeline-point-date {
+    position: absolute;
+    z-index: 3;
+    background: inherit;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    line-height: $timeline-point;
+    overflow: hidden;
+    transition: width .5s, height 0.5s;
+    transform: translate3d(-50%, -50%, 0);
+    text-align: center;
+    font-size: 0.8em;
+    border-radius: 50%;
+  }
+  &:hover .timeline-point-date {
+    width: 100%;
+    height: 100%;
+  }
+  .timeline-y-axis {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: rotate(90deg);
+    z-index: 1;
+    height: 1px;
+    background: rgba(0,0,0,0.2);
+  }
+  &:first-child .timeline-y-axis {
+    transform: rotate(90deg) translateX(50%);
+  }
+  &:last-child .timeline-y-axis {
+    transform: rotate(90deg) translateX(-50%);
+  }
+  .timeline-x-axis {
+    opacity: 0;
+    border-top: 1px solid rgba(0,0,0,0.2);
+  }
+}
+
+.timeline-content-animated {
+  opacity: 1!important;
+  &.left {
+    @include slideInLeft();
+  }
+  &.right {
+  @include slideInRight();
+  }
+}
+
+@media (max-width: $layout-breakpoint-xs) {
+  .timeline {
+    padding-top: 110px;
+    overflow: visible;
+    .timeline-point {
+      top: 0;
+      right: 50%;
+      transform: translate3D(50%, 0%, 0);
+    }
+    .timeline-x-axis {
+      display: none;
+    }
+    .timeline-y-axis {
+      top: 0;
+      transform: rotate(90deg) translateX(0%) !important;
+    }
+  }
+}

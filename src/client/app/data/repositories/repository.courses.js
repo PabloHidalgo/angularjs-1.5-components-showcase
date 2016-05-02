@@ -9,9 +9,10 @@
 
     function CoursesRepository(AbstractRepository, $q, $filter) {
         var base = new AbstractRepository('courses');
+        var getListPromise = null;
 
         var repository = {
-            list: {},
+            list: [],
             getList: getList,
             getTopFavourites: getTopFavourites,
             getTopEnrollments: getTopEnrollments,
@@ -24,13 +25,20 @@
         return repository;
 
         function getList() {
+          //todo: migrate promise logic to other repositorys
+          //todo: migrate 'cache' logic to abstract repository - cannot be specified on each repo
           if ( repository.list.length > 0 ) {
             return $q.when(repository.list);
           }
 
-          return base.getList().then(function(courses) {
+          if ( getListPromise == null) {
+            getListPromise = base.getList();
+          }
+
+          return getListPromise.then(function(courses) {
+            getListPromise = null;
             repository.list = courses;
-            return repository.list;
+            return $q.when(repository.list);
           });
         }
 

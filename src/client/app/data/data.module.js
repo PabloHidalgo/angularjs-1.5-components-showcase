@@ -1,6 +1,8 @@
 (function() {
-	'use strict';
+  'use strict';
 
-	angular
-		.module('app.data', []);
+  angular
+    .module('app.data', [
+      'app.constants'
+    ]);
 })();

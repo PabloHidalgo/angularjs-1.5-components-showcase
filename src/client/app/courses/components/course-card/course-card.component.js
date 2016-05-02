@@ -27,14 +27,14 @@
     CourseCardController.$inject = ['datacontext', '$mdToast'];
 
     function CourseCardController(datacontext, $mdToast) {
-      var vm = this;
+      var $ctrl = this;
 
-      vm.$onInit = function() {
-        console.log('CourseCardController:vm$onInit');
-        console.log(vm);
-      }
+      $ctrl.$onInit = function() {
+        console.log('CourseCardController:$onInit');
+        console.log($ctrl);
+      };
 
-      vm.onEnroll = function(courseId, title, enrolled) {
+      $ctrl.onEnroll = function(courseId, title, enrolled) {
         console.log('CourseCardController::onEnroll - ' + enrolled);
         console.log(arguments);
 
@@ -42,7 +42,7 @@
         showToast(message);
       };
 
-      vm.onLike = function(courseId, title, liked) {
+      $ctrl.onLike = function(courseId, title, liked) {
         console.log('CourseCardController::onLike - ' + liked);
         console.log(arguments);
 

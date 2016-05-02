@@ -9,7 +9,8 @@
       bindings: {
           //inputs
           items: '<',
-          title: '<'
+          title: '<',
+          courses: '<'
 
           //outputs
       }
@@ -18,10 +19,10 @@
     AppToolbarController.$inject = ['$mdSidenav'];
 
     function AppToolbarController($mdSidenav) {
-      var vm = this;
+      var $ctrl = this;
 
-      vm.toggleSidenav = function(menu) {
+      $ctrl.toggleSidenav = function(menu) {
         $mdSidenav(menu).toggle();
-      }
+      };
     }
 })();

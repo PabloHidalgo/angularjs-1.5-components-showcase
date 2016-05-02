@@ -7,6 +7,7 @@ var gulp = require('gulp');
 var path = require('path');
 var _ = require('lodash');
 var $ = require('gulp-load-plugins')({ lazy: true });
+var awspublish = require('gulp-awspublish');
 
 var colors = $.util.colors;
 var envenv = $.util.env;
@@ -71,7 +72,7 @@ gulp.task('plato', function(done) {
  * Compile less to css
  * @return {Stream}
  */
-gulp.task('styles', ['styles-less', 'clean-styles']);
+gulp.task('styles', ['styles-less', 'styles-sass', 'clean-styles']);
 
 gulp.task('styles-less', function() {
     log('Compiling Less --> CSS');
@@ -80,6 +81,18 @@ gulp.task('styles-less', function() {
         .src(config.less)
         .pipe($.plumber()) // exit gracefully if something fails after this
         .pipe($.less())
+//        .on('error', errorLogger) // more verbose and dupe output. requires emit.
+        .pipe($.autoprefixer({ browsers: ['last 2 version', '> 5%'] }))
+        .pipe(gulp.dest(config.temp));
+});
+
+gulp.task('styles-sass', function() {
+    log('Compiling Sass --> CSS');
+
+    return gulp
+        .src(config.sass)
+        .pipe($.plumber()) // exit gracefully if something fails after this
+        .pipe($.sass())
 //        .on('error', errorLogger) // more verbose and dupe output. requires emit.
         .pipe($.autoprefixer({ browsers: ['last 2 version', '> 5%'] }))
         .pipe(gulp.dest(config.temp));
@@ -153,14 +166,59 @@ gulp.task('wiredep', function () {
         .pipe(gulp.dest(config.client));
 });
 
+//['clean:analytics'],
+gulp.task('config:local', function () {
+  configConstants(true);
+});
+
+//['inject:analytics'],
+gulp.task('config:production', function () {
+  configConstants(false);
+});
+
+/**
+ * Create constants angularjs module based on constants json file.
+ * @return {Stream}
+ */
+function configConstants(isDev) {
+  var environment = (isDev) ? 'local' : 'production';
+
+  return gulp
+      .src('./app.constants.json')
+      //.src('./src/client/app/app.constants.json')
+      .pipe($.ngConfig('app.constants', {
+        environment: environment
+      }))
+      .pipe(gulp.dest(config.client + '/app'));
+}
+
 gulp.task('inject', ['wiredep', 'styles', 'templatecache'], function () {
-    log('Wire up css into the html, after files are ready');
+    log('Wire up css & constans into the html, after files are ready');
 
     return gulp
         .src(config.index)
         .pipe(inject(config.css))
         .pipe(gulp.dest(config.client));
 });
+
+gulp.task('inject:analytics', function() {
+  log('injecting google analytics snippet');
+  analytics(true);
+});
+
+gulp.task('clean:analytics', function() {
+  log('cleaning google analytics snippet');
+  analytics(false);
+});
+
+function analytics(injectAnalytics) {
+  var files = injectAnalytics ? config.client + '/scripts/google-analytics.js' : '';
+
+  return gulp
+      .src(config.index)
+      .pipe(inject(files, 'analytics'))
+      .pipe(gulp.dest(config.client));
+}
 
 /**
  * Run the spec runner
@@ -205,7 +263,7 @@ gulp.task('build-specs', ['templatecache'], function(done) {
  * This is separate so we can run tests on
  * optimize before handling image or fonts
  */
-gulp.task('build', ['optimize', 'images', 'fonts'], function () {
+gulp.task('build', ['config:production', 'optimize', 'images', 'fonts'], function () {
     log('Building everything');
 
     var msg = {
@@ -219,11 +277,46 @@ gulp.task('build', ['optimize', 'images', 'fonts'], function () {
 });
 
 /**
+ * Build everything
+ * This is separate so we can run tests on
+ * optimize before handling image or fonts
+ */
+var localConfig = {
+  buildSrc: './build/**/*',
+  getAwsConf: function (environment) {
+    var conf = require('./aws.config');
+    if (!conf[environment]) {
+      throw 'No aws conf for env: ' + environment;
+    }
+    if (!conf[environment + 'Headers']) {
+      throw 'No aws headers for env: ' + environment;
+    }
+    return { keys: conf[environment], headers: conf[environment + 'Headers'] };
+  }
+};
+
+/**
+ * Build everything
+ * This is separate so we can run tests on
+ * optimize before handling image or fonts
+ */
+gulp.task('deploy', ['build'], function() {
+    var awsConf = localConfig.getAwsConf('production');
+    var publisher = awspublish.create(awsConf.keys);
+    return gulp.src(localConfig.buildSrc)
+      .pipe(awspublish.gzip({ ext: '' }))
+      .pipe(publisher.publish(awsConf.headers))
+      .pipe(publisher.cache())
+      .pipe(publisher.sync())
+      .pipe(awspublish.reporter());
+});
+
+/**
  * Optimize all files, move to a build folder,
  * and inject them into the new index.html
  * @return {Stream}
  */
-gulp.task('optimize', ['inject', 'test'], function () {
+gulp.task('optimize', ['inject'/*, 'test'*/], function () {
     log('Optimizing the js, css, and html');
 
     var assets = $.useref.assets({ searchPath: './' });
@@ -339,7 +432,7 @@ gulp.task('autotest', function(done) {
  * --debug-brk or --debug
  * --nosync
  */
-gulp.task('serve-dev', ['inject'], function () {
+gulp.task('serve-dev', ['config:local', 'inject'], function () {
     serve(true /*isDev*/);
 });
 
@@ -415,7 +508,8 @@ function clean(path) {
  * @returns {Stream}   The stream
  */
 function inject(src, label, order) {
-    var options = { read: false };
+    var options = { read: false, empty: src === '' };
+
     if (label) {
         options.name = 'inject:' + label;
     }

@@ -1,24 +1,27 @@
 (function() {
-	'use strict';
+  'use strict';
 
-	angular
-	  .module('app.courses')
-	  .component('courseGallery', {
-  		templateUrl: 'app/courses/components/course-gallery/course-gallery.html',
-			controller: CourseGalleryController,
-	  	bindings: {
-				//inputs
-	  		courses: '<'
+  angular
+    .module('app.courses')
+    .component('courseGallery', {
+      templateUrl: 'app/courses/components/course-gallery/course-gallery.html',
+      controller: CourseGalleryController,
+      bindings: {
+        //inputs
+        courses: '<',
+        filter: '<'
 
-				//outputs
-	  	}
-	  });
+        //outputs
+      }
+    });
 
-		function CourseGalleryController() {
-			var vm = this;
+    CourseGalleryController.$inject = [];
 
-			vm.$onInit = function() {
-				console.log('CourseGalleryController::$onInit');
-			};
-		}
+    function CourseGalleryController() {
+      var $ctrl = this;
+
+      $ctrl.$onInit = function() {
+        console.log('CourseGalleryController::$onInit');
+      };
+    }
 })();

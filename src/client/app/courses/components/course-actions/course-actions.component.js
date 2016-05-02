@@ -25,14 +25,14 @@
     CourseActionsController.$inject = ['datacontext'];
 
     function CourseActionsController(datacontext) {
-      var vm = this;
+      var $ctrl = this;
 
-      vm.toggleEnrollCourse = function(courseId) {
+      $ctrl.toggleEnrollCourse = function(courseId) {
         console.log('CourseActionsController::toggleEnrollCourse');
         console.log(courseId);
 
         datacontext.courses.enroll(courseId).then(function(course) {
-          return vm.onEnroll({
+          return $ctrl.onEnroll({
               $event: {
                 id: course.id,
                 title: course.title,
@@ -42,12 +42,12 @@
         });
       };
 
-      vm.toggleLikeCourse = function(courseId) {
+      $ctrl.toggleLikeCourse = function(courseId) {
         console.log('CourseActionsController::toggleLikeCourse');
         console.log(courseId);
 
         datacontext.courses.like(courseId).then(function(course) {
-          return vm.onLike({
+          return $ctrl.onLike({
               $event: {
                 id: course.id,
                 title: course.title,

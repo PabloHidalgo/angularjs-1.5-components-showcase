@@ -18,7 +18,8 @@
   "dependencies": {
     "angular": "1.5.1-build.4657+sha.6a336ba",
     "angular-material": "master",
-    "toastr": "^2.1.2"
+    "toastr": "^2.1.2",
+    "angular-loading-bar": "^0.9.0"
   },
   "devDependencies": {
     "sinon": "^1.17.3",

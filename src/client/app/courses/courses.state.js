@@ -24,7 +24,10 @@
             resolve: {
               courses: ['datacontext', function(datacontext) {
                   return datacontext.courses.getList();
-              }]
+              }],
+              searchEnabled: function() {
+                return true;
+              }
             },
             data: {
               title: 'COURSES LIST'

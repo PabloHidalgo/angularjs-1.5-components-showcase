@@ -1,7 +1,7 @@
 <ul>
-  <li data-ng-repeat="student in $ctrl.students">
-    <students-list-item
+  <li data-ng-repeat="student in $ctrl.students | filter: $ctrl.filter">
+    <student-item
       student="student">
-    </students-list-item>
+    </student-item>
   </li>
 </ul>

@@ -3,18 +3,21 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title ng-bind="'Angular Components Showcase - ' + title"></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- build:css styles/lib.css -->
         <!-- bower:css -->
         <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
         <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
+        <link rel="stylesheet" href="/bower_components/angular-loading-bar/build/loading-bar.css" />
         <!-- endbower -->
         <!-- endbuild -->
 
         <!-- build:css styles/app.css -->
         <!-- inject:css -->
-        <link rel="stylesheet" href="/src/client/content/styles/temp.css">
+        <link rel="stylesheet" href="/.tmp/angular-components-showcase.css">
         <!-- endinject -->
         <!-- endbuild -->
     </head>
@@ -31,6 +34,7 @@
         <script src="/bower_components/angular-material/angular-material.js"></script>
         <script src="/bower_components/jquery/dist/jquery.js"></script>
         <script src="/bower_components/toastr/toastr.js"></script>
+        <script src="/bower_components/angular-loading-bar/build/loading-bar.js"></script>
         <!-- endbower -->
 
         <script src="/src/client/scripts/angular-ui-router.js"></script>
@@ -46,17 +50,21 @@
         <script src="/src/client/app/data/data.module.js"></script>
         <script src="/src/client/app/students/students.module.js"></script>
         <script src="/src/client/app/teachers/teachers.module.js"></script>
+        <script src="/src/client/app/timeline/timeline.module.js"></script>
         <script src="/src/client/app/about/about.component.js"></script>
         <script src="/src/client/app/about/about.state.js"></script>
         <script src="/src/client/app/app.component.js"></script>
         <script src="/src/client/app/app.config.js"></script>
+        <script src="/src/client/app/app.constants.js"></script>
+        <script src="/src/client/app/app.run.js"></script>
         <script src="/src/client/app/app.state.js"></script>
-        <script src="/src/client/app/components/app-footer/app-footer.component.js"></script>
-        <script src="/src/client/app/components/app-header/app-header.component.js"></script>
         <script src="/src/client/app/components/app-side-nav/app-side-nav.component.js"></script>
         <script src="/src/client/app/components/app-toolbar/app-toolbar.component.js"></script>
         <script src="/src/client/app/components/button-enroll-counter/button-enroll-counter.component.js"></script>
         <script src="/src/client/app/components/button-like-counter/button-like-counter.component.js"></script>
+        <script src="/src/client/app/components/search-box/search-box.component.js"></script>
+        <script src="/src/client/app/components/timeline-card/timeline-card.component.js"></script>
+        <script src="/src/client/app/components/timeline-gallery/timeline-gallery.component.js"></script>
         <script src="/src/client/app/components/total-enrolls-counter/total-enrolls-counter.component.js"></script>
         <script src="/src/client/app/components/total-like-counter/total-like-counter.component.js"></script>
         <script src="/src/client/app/courses/components/course-actions/course-actions.component.js"></script>
@@ -69,15 +77,19 @@
         <script src="/src/client/app/data/repositories/repository.courses.js"></script>
         <script src="/src/client/app/data/repositories/repository.students.js"></script>
         <script src="/src/client/app/data/repositories/repository.teachers.js"></script>
-        <script src="/src/client/app/students/components/students-list-item/students-list-item.component.js"></script>
+        <script src="/src/client/app/students/components/student-item/student-item.component.js"></script>
         <script src="/src/client/app/students/components/students-list/students-list.component.js"></script>
         <script src="/src/client/app/students/students.component.js"></script>
         <script src="/src/client/app/students/students.state.js"></script>
         <script src="/src/client/app/teachers/teachers.component.js"></script>
         <script src="/src/client/app/teachers/teachers.state.js"></script>
+        <script src="/src/client/app/timeline/timeline.state.js"></script>
         <!-- endinject -->
 
         <!-- inject:templates:js -->
+        <!-- endinject -->
+
+        <!-- inject:analytics:js -->
         <!-- endinject -->
         <!-- endbuild -->
     </body>

@@ -2,6 +2,11 @@
 
 AngularJS 1.5 DEMO Project that aims to show how easy is to build a scalable & modular angularjs component based application architecture using ui-router 1.0 routable components, angularjs 1.5 component definition and some basic tips!.
 
+ONLINE DEMO (AWS S3 FREE TIER):
+---
+
+http://phidalgo.angular-components-showcase.s3-website-eu-west-1.amazonaws.com
+
 FEATURES
 ---
 
